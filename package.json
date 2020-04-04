@@ -1,0 +1,27 @@
+{
+  "name": "@buidler-test/monorepo",
+  "version": "0.1.0",
+  "description": "A test monorepo for buidler.",
+  "main": "index.js",
+  "repository": "git@github.com:paxthemax/buidler-test.git",
+  "author": "Pavle Batuta <pavle@batuta.xyz>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": ["contracts"],
+    "nohoist": [
+      "**/@nomiclabs/**",
+      "**/typescript",
+      "**/ts-node",
+      "**/@vue/**",
+      "**/@openzeppelin/cli"
+    ]
+  },
+  "scripts": {
+    "build": "yarn workspaces run build",
+    "build:contracts": "yarn workspace @buidler-test/contracts run build",
+    "start:node": "yarn workspace @buidler-test/contracts run node",
+    "test": "yarn workspaces run test",
+    "test:contracts": "yarn workspace @buidler-test/contracts run test"
+  }
+}
